@@ -10,5 +10,5 @@ export default (document) => {
     `landing_page=${landingPage}`
   ].join('&')
 
-  return `/api/internal/pixel?${attributes}`
+  return `/internal/pixel?${attributes}`
 }
