@@ -84,7 +84,7 @@ var img = document.createElement('img');
 img.src = (0, _pixelUrl2.default)(document);
 img.width = 1;
 img.height = 1;
-img.style = "display:none;";
+img.style = 'display:none;';
 document.body.appendChild(img);
 
 /***/ }),
@@ -112,7 +112,8 @@ exports.default = function (document) {
   var mc = document.location.href.match(/mc=(.*)/);
   var attributes = ['mc=' + (mc ? mc[1] : ''), 'referer=' + document.referrer, 'language=' + language, 'landing_page=' + landingPage].join('&');
 
-  return '/internal/pixel?' + attributes;
+  var appDomain = document.location.origin.replace(/(.*factorialhr\.)(.*)$/, '$1com' // We need to set the cookie to the app domain, so we see it everywhere.
+  );return appDomain + '/internal/pixel?' + attributes;
 };
 
 /***/ }),

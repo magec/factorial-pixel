@@ -10,5 +10,6 @@ export default (document) => {
     `landing_page=${landingPage}`
   ].join('&')
 
-  return `/internal/pixel?${attributes}`
+  const appDomain = document.location.origin.replace(/(.*factorialhr\.)(.*)$/, '$1com') // We need to set the cookie to the app domain, so we see it everywhere.
+  return `${appDomain}/internal/pixel?${attributes}`
 }
